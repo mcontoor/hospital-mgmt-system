@@ -21,6 +21,10 @@ app.get('/',function(req,res){
     res.send("HELLO WORLD");
 });
 
+
+var user = require('./routes/user');
+app.use('/user', user);
+
 // connect the server to MongoDB database 'slackernews' using mongoose
 
 // mongoose.connect('mongodb://localhost:27017/slackernews', {useNewUrlParser: true});

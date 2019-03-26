@@ -2,23 +2,39 @@
 <html>
     <head>
         <meta charset="UTF-8">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/views/css/user.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form method ="GET" action = "userProfile.ejs">
-            <label> FIRST NAME: <input type="text" name ="">required</label>
-            <br>
-            <label> LAST NAME: <input type="text" name ="">required</label>
-            <br>
-            <label> EMAIL ID: <input type="email" name ="">required</label>
-            <br>
-            <label> AGE: <input type="number" name =""></label>
-            <br>
-            <label> GENDER: <input type="number" name =""></label>
-            <br>
-            <label>ABOUT:<br><textarea name="comment"></textarea></label>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
+        <div class = "basicDetails">
+            <h2>UPDATE YOUR PROFILE</h2>
+            <form method ="GET" action = "userProfile.ejs">
+                <label> FIRST NAME: <input type="text" name ="">required</label>
+                <br>
+                <label> LAST NAME: <input type="text" name ="">required</label>
+                <br>
+                <label> EMAIL ID: <input type="email" name ="">required</label>
+                <br>
+                <label> AGE: <input type="number" name =""></label>
+                <br>
+                <label> GENDER<br>
+                    <label class = "radio-inline">
+                        <input type="radio" name="gender" value="male"> Male<br>
+                    </label>
+                    <label class = "radio-inline">
+                        <input type="radio" name="gender" value="female"> Female<br>
+                    </label>
+                    <label class = "radio-inline">
+                        <input type="radio" name="gender" value="other"> Other<br> 
+                    </label> 
+                </label>
+                <br>
+                <label> ABOUT:<br><textarea name="comment"></textarea></label>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </body>
 </html>
