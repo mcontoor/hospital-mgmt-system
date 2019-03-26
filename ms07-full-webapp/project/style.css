@@ -1,0 +1,20 @@
+h1{
+    align-content: center;
+    color: rgb(10, 52, 168);
+    align-self: center;
+    
+}
+
+form{
+margin-left: 50px;
+
+}
+button{
+    margin-left: 50px;
+}
+p{
+    text-align: center;
+    padding-top: 40px;
+    color: black;
+    
+}
