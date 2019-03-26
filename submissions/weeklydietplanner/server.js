@@ -25,6 +25,8 @@ app.get('/',function(req,res){
 var user = require('./routes/user');
 app.use('/user', user);
 
+var login = require('./routes/login');
+app.use('/login', login);
 // connect the server to MongoDB database 'slackernews' using mongoose
 
 // mongoose.connect('mongodb://localhost:27017/slackernews', {useNewUrlParser: true});
