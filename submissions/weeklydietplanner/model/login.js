@@ -17,7 +17,7 @@ username:{
 },
 password:{
     type:String,
-     required:true
+      required:true
 }
 });
 module.exports = mongoose.model('User',userSchema);
