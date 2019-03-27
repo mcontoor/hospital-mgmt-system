@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-const User = require('./models/user')
+const User = require('./model/user');
 
 app.set('view engine', 'ejs');
 
