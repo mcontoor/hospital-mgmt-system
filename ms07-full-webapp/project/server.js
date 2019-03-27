@@ -1,5 +1,24 @@
+const express = require('express');
+const app = express();
 var mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient
+var bodyParser = require('body-parser');
+
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => res.render('home'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.listen(3002, function () {
+    console.log('Listening to port 3002')
+});
+
+
+
 
 // mongoose.connect("mongodb+srv://mcontoor123:mcontoor123@healme-yz6ie.mongodb.net/test?retryWrites=true", { useNewUrlParser: true })
 // .then(res => console.log('Connected'))
@@ -13,8 +32,8 @@ const MongoClient = require('mongodb').MongoClient
 //   client.close();
 // });
 
-var uri = 'mongodb://mcontoor123:mcontoor123@healme/healme?ssl=true&replicaSet=<replica setname>&authSource=admin';
+// var uri = 'mongodb://mcontoor123:mcontoor123@healme/healme?ssl=true&replicaSet=<replica setname>&authSource=admin';
 
-var db = mongoose.connect(uri, { useNewUrlParser: true })
-.then(res => console.log('connected'))
-.catch((error) => { console.log(error); });
+// var db = mongoose.connect(uri, { useNewUrlParser: true })
+// .then(res => console.log('connected'))
+// .catch((error) => { console.log(error); });
