@@ -9,6 +9,7 @@ var app = express();
 const User = require('./model/user');
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 5000;
 

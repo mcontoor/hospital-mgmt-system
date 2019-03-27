@@ -1,116 +1,140 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" src="/views/css/user.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <style>
-                .basicDetails{
-                    background-color: royalblue;
-                    border: 2px;
-                    margin: 40px;
-                    text-align: center;
-                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-                }
-        </style>
-        <div class = "basicDetails">
-            <h2 class="a"><strong>UPDATE YOUR PROFILE</strong></h2>
-            <form method ="GET" action = "userProfile.ejs">
-                <label> FIRST NAME: <input type="text" name =""> *</label>
-                <br>
-                <label> LAST NAME: <input type="text" name =""> *</label>
-                <br>
-                <label> EMAIL ID: <input type="email" name =""> *</label>
-                <br>
-                <label> AGE: <input type="number" name =""></label>
-                <br>
-                <label> GENDER<br>
-                    <label class = "radio-inline">
-                        <input type="radio" name="gender" value="male"> Male<br>
-                    </label>
-                    <label class = "radio-inline">
-                        <input type="radio" name="gender" value="female"> Female<br>
-                    </label>
-                    <label class = "radio-inline">
-                        <input type="radio" name="gender" value="other"> Other<br> 
-                    </label> 
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/user.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <style>
+        .basicDetails {
+            /* background-color: royalblue; */
+            border: 2px;
+            /* margin: 40px; */
+            /* text-align: center; */
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+    <div class="basicDetails container">
+        <h2><strong>UPDATE YOUR PROFILE</strong></h2>
+        <form method="GET" action="userProfile.ejs">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"> FIRST NAME: </label>
+                <div class="col-sm-10">
+                    <input type="text" name="" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label> LAST NAME: </label>
+                <input type="text" name="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label> EMAIL ID: </label>
+                <input type="email" name="" class="form-control">
+            </div>
+            <div class="form-group">
+                <label> AGE: </label>
+                <input type="number" name="" class="form-control">
+            </div>
+            <div class="form-group">
+                <label> GENDER</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Other </label>
+                </div>
+            </div>
+
+            <div>
+                <label> ABOUT:</label>
+                <textarea name="comment"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <hr width="40" color="blue">
+    <div class="weeklyplan">
+        <h2 class="b">CREATE YOUR MEALS</h2>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".add-row").click(function () {
+                    var name = $("#name").val();
+                    var time = $("#time").val();
+                    var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name +
+                        "</td><td>" + time + "</td></tr>";
+                    $("table tbody").append(markup);
+                });
+
+                // Find and remove selected table rows
+                $(".delete-row").click(function () {
+                    $("table tbody").find('input[name="record"]').each(function () {
+                        if ($(this).is(":checked")) {
+                            $(this).parents("tr").remove();
+                        }
+                    });
+                });
+            });
+        </script>
+        <form>
+            <input type="text" id="name" placeholder="Food Name">
+            <input type="text" id="time" placeholder="Meal Time">
+            <input type="button" class="add-row" value="Add Row">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Food</th>
+                    <th>Set Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="record"></td>
+                    <td> Cereal</td>
+                    <td>Breakfast</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="delete-row">Delete Row</button>
+    </div>
+    <hr width="40" color="blue">
+    <div>
+        <tr>
+            <td align="right">Meal Time and Type </td>
+            <td><input type="text" name="Email" />
+                <select name="mealType">
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Snacks" selected="selected">Snacks</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="In between meals">In between meals</option>
+                </select>
+                <select name="">
+                    <option value="Vegetarian" selected="selected">Vegetarian</option>
+                    <option value="Non Vegetarian">Non Vegetarian</option>
+                </select>
+                <label>
+                    <input type="time" id="appt" name="appt" min="9:00" max="18:00" required>
                 </label>
-                <br>
-                <label> ABOUT:<br><textarea name="comment"></textarea></label>
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-        <hr width ="30" color="blue">
-        <div class = "weeklyplan">
-            <h2 class="b">CREATE YOUR MEALS</h2>
-            <script type="text/javascript">
-                    $(document).ready(function(){
-                        $(".add-row").click(function(){
-                            var name = $("#name").val();
-                            var time = $("#time").val();
-                            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + time + "</td></tr>";
-                            $("table tbody").append(markup);
-                        });
-                        
-                        // Find and remove selected table rows
-                        $(".delete-row").click(function(){
-                            $("table tbody").find('input[name="record"]').each(function(){
-                                if($(this).is(":checked")){
-                                    $(this).parents("tr").remove();
-                                }
-                            });
-                        });
-                    });    
-            </script>
-            <form>
-                    <input type="text" id="name" placeholder="Food Name">
-                    <input type="text" id="time" placeholder="Meal Time">
-                    <input type="button" class="add-row" value="Add Row">
-            </form>
-            <table>
-                    <thead>
-                        <tr>
-                            <th>Select</th>
-                            <th>Food</th>
-                            <th>Set Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="record"></td>
-                            <td> Cereal</td>
-                            <td>Breakfast</td>
-                        </tr>
-                    </tbody>
-            </table>
-            <button type="button" class="delete-row">Delete Row</button>
-        </div>
-        <hr width ="40" color="blue">
-        <div>
-            <tr>  
-                <td align="right">Meal Time and Type </td>  
-                <td><input type="text" name="Email" />  
-          <select name="cars">  
-              <option value="Breakfast">Breakfast</option>  
-              <option value="Lunch">Lunch</option>  
-              <option value="Snacks" selected="selected">Snacks</option> 
-              <option value="Dinner">Dinner</option> 
-              <option value="In between meals">In between meals</option>
-              </select>  
-              <select name="">  
-              <option value="Vegetarian" selected="selected">Vegetarian</option>  
-              <option value="Non Vegetarian">Non Vegetarian</option>  
-              </select>                  
-              <label>
-                <input type="time" id="appt" name="appt" min="9:00" max="18:00" required>
-              </label>
-          </td>  
-         </tr>  
-        </div>
-    </body>
+            </td>
+        </tr>
+    </div>
+</body>
+
 </html>
