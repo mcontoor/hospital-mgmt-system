@@ -2,12 +2,12 @@ var mongoose= require('mongoose')
 var Schema=mongoose.Schema
 var userSchema= new Schema({
     firstname :{
-        type:string,
+        type: String,
         required:true,
         
     },
     lastname:{
-        type:string,
+        type: String,
         required:true,
     
     },
@@ -17,15 +17,15 @@ var userSchema= new Schema({
          unique:true
      },
      password:{
-         type:string,
+         type: String,
          required:true,
      },
      age:{
-         type:number,
+         type: Number,
          required:true
      },
      emailId:{
-           type:string,
+           type: String,
            required:true
      }
 });

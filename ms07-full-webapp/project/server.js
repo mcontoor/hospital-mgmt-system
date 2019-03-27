@@ -6,7 +6,9 @@ var bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => res.render('home'));
+app.get('/', function(req, res) {
+    res.render('home');
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -17,7 +19,8 @@ app.listen(3002, function () {
     console.log('Listening to port 3002')
 });
 
-
+var routes = require('./routes/app')
+app.use(routes);
 
 
 // mongoose.connect("mongodb+srv://mcontoor123:mcontoor123@healme-yz6ie.mongodb.net/test?retryWrites=true", { useNewUrlParser: true })
