@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/user.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -28,48 +29,54 @@
                     <input type="text" name="" class="form-control" />
                 </div>
             </div>
-            <div class="form-group">
-                <label> LAST NAME: </label>
-                <input type="text" name="" class="form-control" />
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"> LAST NAME: </label>
+                <div class="col-sm-10">
+                        <input type="text" name="" class="form-control" />
+                </div>  
             </div>
-            <div class="form-group">
-                <label> EMAIL ID: </label>
-                <input type="email" name="" class="form-control">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"> EMAIL ID: </label>
+                <div class="col-sm-10">
+                        <input type="email" name="" class="form-control">
+                </div>  
             </div>
-            <div class="form-group">
-                <label> AGE: </label>
-                <input type="number" name="" class="form-control">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"> AGE: </label>
+                <div class="col-sm-10">
+                        <input type="number" name="" class="form-control">
+                </div>
             </div>
             <div class="form-group">
                 <label> GENDER</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        value="option1">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                        value="option2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">Female</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                        value="option3">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
                     <label class="form-check-label" for="inlineRadio3">Other </label>
                 </div>
             </div>
 
-            <div>
-                <label> ABOUT:</label>
-                <textarea name="comment"></textarea>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"> ABOUT:</label>
+                <div class="col-sm-10">
+                        <input type="text" name="" class="form-control">
+                        <!-- <textarea name="comment"></textarea> -->
+                </div>   
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">SAVE</button>
         </form>
     </div>
     <hr width="40" color="blue">
-    <div class="weeklyplan">
-        <h2 class="b">CREATE YOUR MEALS</h2>
+    <div class="weeklyPlan container">
+        <h2 class="b"><strong>CREATE YOUR MEALS</strong> </h2>
         <script type="text/javascript">
             $(document).ready(function () {
                 $(".add-row").click(function () {
@@ -90,10 +97,38 @@
                 });
             });
         </script>
-        <form>
-            <input type="text" id="name" placeholder="Food Name">
-            <input type="text" id="time" placeholder="Meal Time">
-            <input type="button" class="add-row" value="Add Row">
+       
+        <form method="GET" action="userProfile.ejs">
+                <div class = "form-row">
+                    <div class = "col-2">
+                            <input type="text" id="name" class ="form-control" placeholder="Food Name">
+                    </div>
+                    <div class = "col-2">
+                            <input type="text" id="time" class = "form-control" placeholder="Meal Time">
+                    </div>
+                    <div class = "col-2">
+                            <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                              <option selected>Choose Meal Type</option>
+                              <option value="1">Breakfast</option>
+                              <option value="2">Brunch</option>
+                              <option value="3">Lunch</option>
+                              <option value="4">Snacks</option>
+                              <option value="5">Dinner</option>
+                            </select>
+                    </div>
+                    <div class='col-2'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker3'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </div>
+                       
+                        <input type="button" class="add-row" value="Add Row">
+                </div>
         </form>
         <table>
             <thead>
@@ -135,6 +170,17 @@
             </td>
         </tr>
     </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker3').datetimepicker({
+                format: 'hh:ii'
+            });
+        });
+    </script>
+    <!-- <script type="text/javascript">
+        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    </script>  -->
 </body>
 
 </html>
